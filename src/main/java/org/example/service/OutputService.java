@@ -4,16 +4,21 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class OutputService {
-    private final String greeting;
+
+    private final String name;
+
+    private final GreetingService greetingService;
     private final TimeService timeService;
 
-    public OutputService(String greeting, TimeService timeService) {
-        this.greeting = greeting;
+    public OutputService(GreetingService greetingService, TimeService timeService, String name){
+        this.greetingService = greetingService;
         this.timeService = timeService;
+        this.name = name;
     }
 
-
-    public void generateOutput(String name) {
-        System.out.println(greeting + ", " + name + "! TimeService is active: " + timeService.isActive());
+    public void generateOutput(){
+        String output = timeService.getCurrentTime() + " " + greetingService.getGreeting(name);
+        System.out.println(output);
     }
+
 }
