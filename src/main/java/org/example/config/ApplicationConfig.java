@@ -9,6 +9,7 @@ import org.springframework.context.annotation.*;
 @Configuration
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "org.example")
+@EnableAspectJAutoProxy
 public class ApplicationConfig {
 
 // Remove this as we dont need it anymore
