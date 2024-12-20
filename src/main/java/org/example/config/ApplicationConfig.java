@@ -17,7 +17,7 @@ public class ApplicationConfig {
     private String greeting;
     @Value("${app.name}")
     private String name;
-    @Value("#{new Boolean(environment['spring.profiles.active']!='dev')}")
+    @Value("#{new Boolean(environment['spring.profiles.active']!='dev')}") //this is SPEL - Spring Expression Language
     private boolean is24;
 
     @Autowired
